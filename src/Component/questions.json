@@ -48,9 +48,9 @@
         "question":"5. Which is our national flower ?",
         "answer":[
             "Rose",
-            "Lotus",
+           "Lotus",
             "Tulip",
-            "Lily"
+           "Lily"
         ],
         "correctAnswer": "Lotus"
     }

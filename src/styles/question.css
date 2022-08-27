@@ -1,7 +1,4 @@
 .question-card{
-
-    
-    
     border: var(--border);
     border-radius: 15px;
     padding: 20px;
@@ -53,3 +50,15 @@ ul{
 .next:disabled{
     opacity: .5;
 }
+
+
+@media(orientation:portrait){
+    ul{
+        flex-direction: column;
+    }
+    .btn{
+        width: 80%;
+        margin-bottom: 5px;
+    }
+
+}   

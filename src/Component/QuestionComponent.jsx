@@ -6,14 +6,13 @@ export default function QuestionComponent(props) {
   const [questionCounter, setQuestionCounter] = useState(0);
   const [displayPopup, setDisplayPopup] = useState(false);
   const [score, setScore] = useState(0);
-  const [id, setId] = useState("");
   const [isDisabled, setDisabled] = useState(false);
+  const [clicked, setclicked] = useState("");
 
   let questionToDisplay = QuestionsArray[questionCounter];
   function nextHandler(e) {
     e.preventDefault();
-    setDisabled(false)
-    setId("")
+    setDisabled(false);
     if (questionCounter < 4) {
       setQuestionCounter(questionCounter + 1);
     } else {
@@ -32,24 +31,33 @@ export default function QuestionComponent(props) {
             {questionToDisplay.answer.map((option, index) => (
               <button
                 onClick={() => {
-                  setDisabled(true)
+                  setDisabled(true);
+                  console.log(option);
+                  setclicked(option)
                   if (option === questionToDisplay.correctAnswer) {
                     setScore(score + 20);
-                    setId("true");
-                  } else {
-                    setId("false");
-                  }
+                  } 
                 }}
                 className="btn"
                 key={index}
-                id={id}
+                id={
+                  clicked==option
+                    ? option === questionToDisplay.correctAnswer
+                      ? "true"
+                      : "false"
+                    : ""
+                }
                 disabled={isDisabled}
               >
                 {option}
               </button>
             ))}
           </ul>
-          <button onClick={nextHandler} className="btn next" disabled={!isDisabled}>
+          <button
+            onClick={nextHandler}
+            className="btn next"
+            disabled={!isDisabled}
+          >
             {questionCounter == 4 ? "Submit" : "Next"}
           </button>
         </div>
