@@ -1,0 +1,15 @@
+const lastUpdated = localDatabase.lastUpdated;
+
+
+  let calendar = new Date()
+  let date = calendar.getDate();
+  let month = calendar.getMonth() + 1;
+  let year = calendar.getFullYear();
+  let today = [ date, month, year].join("-")
+  console.log(localDatabase.users)
+  if (today!=lastUpdated){
+    localDatabase.users={}
+    localDatabase.lastUpdated=today
+  }
+  console.log(localDatabase.users)
+  console.log(localDatabase.lastUpdated)

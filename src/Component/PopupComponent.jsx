@@ -1,8 +1,7 @@
 import "./popup.css";
-
+import { Link } from "react-router-dom";
 export default function PopupComponent(props) {
   const score = props.score;
-  // const score = 100;
   function Message() {
     if (score === 100) {
       return (
@@ -21,22 +20,30 @@ export default function PopupComponent(props) {
     } else {
       return (
         <>
-          <h3>
+          <h5>
             Sorry you are not eligible to get best offer, Please try Again
-          </h3>
-          <h3> You have Scored {score}/100</h3>
+          </h5>
+          <h4 className="lh"> You have Scored {score}/100</h4>
+          <Link
+            id={"play"}
+            className="play link btn next"
+            to="/QuestionComponent"
+          >
+            Play Again
+          </Link>
         </>
       );
     }
   }
   return (
     <div className="popup-window">
+      {props.setResetScore(true)}
       <div className="popup">
-        <Message />
-        <button className="close-btn">
+        <Message className="lh" />
+        <Link to="/GetUser" className="close-btn">
           <div className="one line"></div>
           <div className="two line"></div>
-        </button>
+        </Link>
       </div>
     </div>
   );

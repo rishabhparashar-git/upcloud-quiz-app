@@ -1,7 +1,7 @@
-:root{
+:root {
   --border: 2px solid var(--accentColor);
-  --accentColor:#61dafb;
-  --bgColor:#282c34
+  --accentColor: #61dafb;
+  --bgColor: #282c34;
 }
 .App {
   text-align: center;
@@ -10,6 +10,3 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-
-
